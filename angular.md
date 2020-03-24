@@ -37,5 +37,15 @@ Has the view layout created with HTML and includes bindings and directives.
 ### Class ###
 Supports the view and is created in TypeScript. It contains the properties and methods needed by the view. 
 ### Metadata ###
-Has extra data needed by Angular. 
+Has extra data needed by Angular defined with a decorator.
+
+**Decorator** is a function that adds metadata to a class, its members, or its method arguments. A Decorator is a JavaScript language feature. Adding the @Component decorator to a class makes that class an Angular component.
+
+A directive is a customer element.
+
+In NgModule, the declarations property is an array of the components that belong to this module. The imports property is an array of the external modules that are needed by the components in this module. The bootstrap property is an array that defines the startup component of the application.
+
+
+
+
 

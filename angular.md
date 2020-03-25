@@ -94,3 +94,9 @@ The recommended way to register a service is in the root injector. This is done 
        declarations: [ AppComponent ],
        providers: [ ProdService ]
     })
+
+If a service is to be used only my a single component and its children, the service is registered in the providers property of the @Component decorator.
+    @Component({
+       providers: [ ProdService ]
+    })
+

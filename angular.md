@@ -41,9 +41,11 @@ Has extra data needed by Angular defined with a decorator.
 
 **Decorator** is a function that adds metadata to a class, its members, or its method arguments. A Decorator is a JavaScript language feature. Adding the @Component decorator to a class makes that class an Angular component.
 
-A directive is a customer element.
+A directive is a custom html element.
 
 In NgModule, the declarations property is an array of the components that belong to this module. The imports property is an array of the external modules that are needed by the components in this module. The bootstrap property is an array that defines the startup component of the application.
+
+In a component, the templateUrl property defines the file that is the Linked Template.
 
 
 

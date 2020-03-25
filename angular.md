@@ -53,6 +53,28 @@ Interpolation is a data binding function that passes data from the class propert
 
 {{title}} This is an example of interpolation. title is a property of the associated class. This is a template expression. The expression is evaluated in the context of an expression.
 
-Angular has built-in directives like \*ngIf and \*ngFor
+Angular has built-in directives like \*ngIf and \*ngFor. These are known as structural directives. The alter the structure of the view by adding, removing or manipulatin DOM elements. The \* in front of \*ngIf or \*ngFor marks it as a structural directive.
 
+If the expression in \*ngIf="expression" evaluates to true, elements will be added to the DOM. If the expression evaluates to false, then elements are removed from the DOM.
+
+\*ngIf and \*ngFor are exposed in the BrowserModule.
+
+    <ts *ngFor="let product of products>
+    
+The let keyword is used to define template input variable. The example above, product is a template input variable. It can be referenced anywhere in the element in which it was defined.
+
+    for...of // loops over iterable objects like arryas
+    
+    for...in // iterates over properties of an object
+
+    This is one-way data binding or property binding:
+    <img [src]='product.imageUrl'>
+    
+    This is interpolation
+    <img src={{product.imageUrl}}
+    
+These two bindings do the same thing.
+
+**ngOnChanges** 
+A lifecycle hook that is called when any data-bound property of a directive changes. 
 

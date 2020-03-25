@@ -76,5 +76,21 @@ The let keyword is used to define template input variable. The example above, pr
 These two bindings do the same thing.
 
 **ngOnChanges** 
-A lifecycle hook that is called when any data-bound property of a directive changes. 
+A lifecycle hook that is called when any data-bound property of a directive changes. This is called only when an Input property changes.
 
+**Service**
+
+The recommended way to register a service is in the root injector. This is done using the @Injection decorator. This was introduced in Angular 6.
+
+    @Injectable({
+       providedIn: 'root'
+    })
+    export class ProdService {}
+    
+    The old way is no longer recommended: registering in the service as a provider in an NgModule.
+    
+    @NgModule({
+       imports: [ BrowserModule ],
+       declarations: [ AppComponent ],
+       providers: [ ProdService ]
+    })

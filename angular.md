@@ -1,4 +1,6 @@
 # Angular Course Notes
+[Modules](#modules)
+
 
 An Angular application is conprized of one or more components and can include one or more services.
 

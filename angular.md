@@ -1,16 +1,16 @@
-# Angular Course Notes #
+# Angular Course Notes
 
 An Angular application is conprized of one or more components and can include one or more services.
 
-An Angular component is comprised of a **template** that consists of HTML for the interface fragment. A **class** for the code associated with the view. The class contains the properties used by the view and the methods needed to respond to the actions of the view. Also there is **metadata** that provides additional information. The **metadata** identifies the class as an angular component.
+An Angular component is comprised of a ***template*** that consists of HTML for the interface fragment. A ***class*** for the code associated with the view. The class contains the properties used by the view and the methods needed to respond to the actions of the view. Also there is ***metadata*** that provides additional information. The ***metadata*** identifies the class as an angular component.
 
 It is a view defined with a template, its associated code defined with a class and addiational information defined with metadata.
 
-An Angular application is organized into **Modules**. Each Module is comprized of one or more component. Each applicaton has at least one module known as the root module.
+An Angular application is organized into ***Modules***. Each Module is comprized of one or more component. Each applicaton has at least one module known as the root module.
 
-**npm** is the package manager. It is used to install all the dependencies for an Angular project and all sub-dependencies. All of the dependencies are listed in the package.json file. ALl of the dependencies are installed in the node_modules folder.
+***npm*** is the package manager. It is used to install all the dependencies for an Angular project and all sub-dependencies. All of the dependencies are listed in the package.json file. ALl of the dependencies are installed in the node_modules folder.
 
-## Modules ##
+## Modules
 In ES 2015 a file is a module and a module is a file. Angular has its own modules.
 
 This is a module in ES 2015:
@@ -32,11 +32,11 @@ ES code modules are about organizing code. Angular modules are about organizing 
 
 Component = Template + Class + Metadata
 
-### Template ###
+### Template
 Has the view layout created with HTML and includes bindings and directives. 
-### Class ###
+### Class
 Supports the view and is created in TypeScript. It contains the properties and methods needed by the view. 
-### Metadata ###
+### Metadata
 Has extra data needed by Angular defined with a decorator.
 
 **Decorator** is a function that adds metadata to a class, its members, or its method arguments. A Decorator is a JavaScript language feature. Adding the @Component decorator to a class makes that class an Angular component.
@@ -100,11 +100,34 @@ If a service is to be used only my a single component and its children, the serv
        providers: [ ProdService ]
     })
     
-## Observable ##
+## Observable
 
 Observables are for handling asynchronous data. They emit values as they are received by the observable. You need to subscribe to an observable in order for it to emit values. If you don't subscribe to it, it does nothing. Operartors are methods on observables that create new observables. They transform the observable in a defined way. Operators are composed using the pipe method.
 
-##### Example #####
+### Observable vs Promise
+
+#### Promise
+* Provide a single value
+* Not lazy - you don't subscribe to it
+* Not cancellable
+    
+#### Observable
+* Emits multiple values over time
+* Lasy - have to subscribe to it in order for it to start emitting values
+* Cancellable
+* Supports many operators
+
+The "assets" array in the angular.json file describes to location of the assets needed by the project.
+
+     this.dataService.getProductList().subscribe(
+      (productList: Array<string>) => { this.products = productList.map((project: string) => ({ label: product, value: product })); }
+      ,
+      (error: HttpErrorResponse) => {
+        this.products = [];
+      }
+    );
+
+##### Observable Example
 
     import { take } from 'rxjs/operators';
     import { Observable, of } from 'rxjs';
@@ -124,7 +147,7 @@ Observables are for handling asynchronous data. They emit values as they are rec
         return obs.pipe(take(freq));
       }
 
-# Unit Testing #
+# Unit Testing
     it('should get list of projects', () => {
         service.getProjects().subscribe((response) => {
             expect(response).toBeDefined();

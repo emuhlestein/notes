@@ -99,7 +99,30 @@ If a service is to be used only my a single component and its children, the serv
     @Component({
        providers: [ ProdService ]
     })
+    
+## Observable ##
 
+Observables are for handling asynchronous data. They emit values as they are received by the observable. You need to subscribe to an observable in order for it to emit values. If you don't subscribe to it, it does nothing. Operartors are methods on observables that create new observables. They transform the observable in a defined way. Operators are composed using the pipe method.
+
+##### Example #####
+
+    import { take } from 'rxjs/operators';
+    import { Observable, of } from 'rxjs';
+    cancel(run: Run): Observable<Object> {
+        return this.take(this.http.put(`${this.url}cancel/${id}`, JSON.stringify({}), {
+            headers: new HttpHeaders().set('accept', 'text/plain'),
+            responseType: 'text' as 'json' }));
+      }
+
+      /**
+       * This function enusres that an observable is unsubscribed after use.
+       *  it prevents having to call explicitly call unsubscribe on every observable
+       * @param obs - An Observable
+       * @param freq - the number of times the observable is expected to emit (default value is 1)
+       */
+      private take<T>(obs: Observable<T>, freq: number = 1): Observable<T> {
+        return obs.pipe(take(freq));
+      }
 
 # Unit Testing #
     it('should get list of projects', () => {
@@ -122,4 +145,20 @@ If a service is to be used only my a single component and its children, the serv
     function test(req, url): boolean {
         return (req.url === url && req.method === 'GET');
     }
+
+Another example:
+    it(`sendData() should update a model where the version has changed`, async(() => {
+        const formData: FormData = new FormData();
+        component.modelService.selectedDataModel = testDataModel;
+        component.formData = formData;
+        spyOn(component.dataModelService, 'uploadDataModel').and.returnValue(of(component.dataModelService.selectedDataModel));
+        spyOn(component, 'updateModelList');
+        spyOn(component, 'cleanUp');
+        component.sendData(component.dataModelService.selectedDataModel, true, true);
+        expect(component.dataModelService.uploadDataModel).toHaveBeenCalledWith(component.formData);
+        expect(component.updateModelList).toHaveBeenCalled();
+        expect(component.saveMessage).toEqual('The data model has been successfully updated ');
+        expect(component.resultStatus).toBeTruthy();
+        expect(component.cleanUp).toHaveBeenCalled();
+  }));
 

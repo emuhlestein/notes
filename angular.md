@@ -146,7 +146,8 @@ Observables are for handling asynchronous data. They emit values as they are rec
         return (req.url === url && req.method === 'GET');
     }
 
-Another example:
+Another example:  
+
     it(`sendData() should update a model where the version has changed`, async(() => {
         const formData: FormData = new FormData();
         component.modelService.selectedDataModel = testDataModel;
@@ -160,5 +161,5 @@ Another example:
         expect(component.saveMessage).toEqual('The data model has been successfully updated ');
         expect(component.resultStatus).toBeTruthy();
         expect(component.cleanUp).toHaveBeenCalled();
-  }));
+    }));
 

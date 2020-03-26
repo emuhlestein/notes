@@ -45,3 +45,10 @@ Angular Module declares every component, directive and pipe that is manages.
       bootstrap: [AppComponent]
     })
     export class AppModule {}
+    
+The BrowserModule should only be imported into the root AppModule. If some other module needs ngFor and ngIf (and other directives), The CommonModule should be imported and not the BrowserModule.
+
+The BrowserModule imports and exports the CommonModule.
+
+A module can export a module it did not import. If a module exports a system module, a module that imports this module does not need to also import the exported system module.
+

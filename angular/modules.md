@@ -21,7 +21,27 @@ An Angular Module is a class that have been decorated with the NgModule decorato
 
 ![Angular Module](../assets/angular-module.png)
 
+
     @NgModule({
         // class properties
+    })
+    export class AppModule {}
+
+Angular Module declares every component, directive and pipe that is manages.
+
+    @NgModule({
+       declarations: [
+          AppComponent,
+          // other components that are provided by this module
+      ],
+      imports: [
+          BrowserModule,
+          FormsModule,
+          HttpClientModule,
+         // other modules that the components in this module need
+      ],
+      // this is the bootstrap component. This is the root component that gets added first. There should only be one bootstrap
+      // array defined and this should be in the root module or the app.module.
+      bootstrap: [AppComponent]
     })
     export class AppModule {}

@@ -100,3 +100,26 @@ If a service is to be used only my a single component and its children, the serv
        providers: [ ProdService ]
     })
 
+
+# Unit Testing #
+    it('should get list of projects', () => {
+        service.getProjects().subscribe((response) => {
+            expect(response).toBeDefined();
+            expect(response.length).toEqual(3);
+            expect(response[0]['ProjectName']).toEqual('project 1');
+            expect(response[1]['ProjectName']).toEqual('project 2');
+            expect(response[2]['ProjectName']).toEqual('project 3');
+        });
+
+        const url = service.getProjectsURL;
+        const request = http.expectOne(req => req.url === url && req.method === 'GET');
+        request.flush({value: projects});
+        http.verify();
+    });
+
+    const request = http.expectOne(req => test(req, url));
+
+    function test(req, url): boolean {
+        return (req.url === url && req.method === 'GET');
+    }
+

@@ -1,5 +1,6 @@
 # Angular Course Notes
 [Modules](./modules.md)  
+[Components](./components.md)
 [Routing](./routing.md)  
 [Observable Example](#observable example)
 

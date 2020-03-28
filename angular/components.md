@@ -116,11 +116,50 @@ In Angular:
     @ViewChild('divElementVar') divElementRef; // divElementVar is the selector for the element
 
 The selector can be an angular directive:
+
     @ViewChild(**NgModel**) filterInput: NgModel;
-    <input type='text' [(ngModel)]='listFilter' />
+    <input type='text' [(**ngModel**)]='listFilter' />
 
 Can be customer directive or child component:
-    @ViewChild(StarComponent) star: StarComponent;
-    <pm-star [rating]='product.starRating'></pm-star>
-   
-   
+
+    @ViewChild(**StarComponent**) star: StarComponent;
+    <**pm-star** [rating]='product.starRating'></pm-star>
+    
+Template Reference variable
+
+   @ViewChild('divElementVar') divElementRef: ElementRef;  
+   \<div #divElementVar>{{pageTitle}}\</div>
+
+Component life cycle
+1. Component is constructed - constructor()
+2. Component is initilaized - ngOnInit()
+3. The view is initialized and rendered - ngAfterViewInit()
+
+     @ViewChild('filterElement') filterElementRef: ElementRef;  
+    ngAfterViewInit(): void {
+       this.filterElementRef.nativeElement.focus();
+    }
+
+Good to check for existance of nativeElement:
+
+    if ( this.filterElementRef.nativeElement) {
+       this.filterElementRef.nativeElement.focus();
+    }
+
+Accessing Native Elements
+* Directly accesses the DOM
+* Tightly coupled to the browser
+* May not be able to use server-side rendering or web workers
+* Can pose a security threat: cross side scripting attacks XXX
+
+Be careful when there are \*ngIfs. NOTE: need to look at this in more depth. Maybe better to not use \*ngIf when needing to access child elements.
+
+ngOnChanges(changes: SimpleChanges){} is a lifecycle hook that gets called whenever any input property changes. The changes parameter has the current and previous value of all the input properties. Can only use this in a child component with @Input().
+
+    ngOnChanges(changes; SimpleChanges): void {
+       if (changes['hitCount'] && !changes['hitCount'].currentValue) {
+          this.hitMessage = 'No matches found';
+       } else {
+          this.hitMessage = 'Hits: ' + this.hitCount;
+       }
+    }

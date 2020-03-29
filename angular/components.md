@@ -196,3 +196,28 @@ The next thing that is needed is an @Output property so the changed value can be
 In the parent template, a method is called when the value changes. The $event is the payload.
     <child (valueChange)='onValueChange($event)'><child>
     
+### Communicating Through A Service
+
+A service can maintain state and communicate that state with other components.
+What is State?
+
+* View State - What is rendered in the template
+* User Information - maybe user settings
+* Entity Data - Data retrieved from the backend server
+* User Selection and Input
+* etc
+
+Types of services:
+
+* Property Bag - a service that just has properties that it shares amoung components. There is no logic.
+* State Management - a service that manages application state. It can communicate state changes with built notifications
+* State Management with Notifications - State management with notifications using Subject, BehaviorSubject
+* ngrx/Redux - Uses State(immutable), Actions(State Changes, Reducers(State+Action=New State), Store(Observableof state...)
+
+
+
+
+
+
+
+

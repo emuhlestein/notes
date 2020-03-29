@@ -1,6 +1,9 @@
 # Routing
 
 this.route.snapshot.paramMap.get('id') is used to get the parameters from the route. snapshot is fine if the route parameters won't change.
+
+Moving away from a component because of a route event, the component is destroyed. When the back button is clicked, the component needs to be re-created.
+
 # Routing
 If a component is displayed as part of a route and is not embedded in the template of another component, the selector properity is not needed.
 

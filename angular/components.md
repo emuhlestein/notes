@@ -214,10 +214,32 @@ Types of services:
 * State Management with Notifications - State management with notifications using Subject, BehaviorSubject
 * ngrx/Redux - Uses State(immutable), Actions(State Changes, Reducers(State+Action=New State), Store(Observableof state...)
 
+When a user navigates away from a component, the component is destroyed and all its state is lost. To remember the state of a component, a service can be used as a means to remember the state. The navigated component is initialized and displayed. When returning to the former component, it is re-created and displayed. All of its state is gone. It is back to its default state.
 
+A service that is used only for maintaining component state is sometimes called a property bag. So the component will not use local properties to save state data, it will store its values in a service.
 
+    export class ProductComponent {
+        constructor(private paramService: ParameterService){}
+        
+        set someProperty(value: number) {
+           this.paramService.someProperty = value;
+        }
+        
+        get someProperty(): number {
+           return this.paramService.someProperty;
+        }
+    }
 
+A component cannot remember its state. When navigating away from a component, it is destroyed along with all of its state.
 
+### Services
 
+* Provide funtionaliy across components
+* Logging, calculations, data access, data sharing, ...
+* Is registered with the angular injector
+* Inject service into any component that needs it
+* Services are singletons
 
+### Data Access Service
 
+A service that interacts with a backend for retrieving and storing data.

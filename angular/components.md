@@ -163,3 +163,36 @@ ngOnChanges(changes: SimpleChanges){} is a lifecycle hook that gets called whene
           this.hitMessage = 'Hits: ' + this.hitCount;
        }
     }
+
+If there is a child property, that is not designated as an @Output property, there is a way to communicate the value change to the parent.
+
+    someValue: number: // a value bound in the template that a parent is interested in
+    
+Need to add getter and setter for the property.
+
+    _someValue: number;
+    get someValue(): number{
+        return this._someValue;
+    }
+    
+    set someValue(value: number) {
+        this_someValue = value;
+    }
+    
+The next thing that is needed is an @Output property so the changed value can be emitted to the parent.
+
+    @Output() valueChange: EventEmitter<number> = new EvenetEmitter<number>();
+    _someValue: number;
+        get someValue(): number{
+        return this._someValue;
+    }
+    
+    set someValue(value: number) {
+        this_someValue = value;
+        // the value has changed, notify the parent
+        this.valueChange.emit(value); // The value is the event payload
+    }
+
+In the parent template, a method is called when the value changes. The $event is the payload.
+    <child (valueChange)='onValueChange($event)'><child>
+    

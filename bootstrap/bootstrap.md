@@ -14,8 +14,8 @@ CARP
 
 ## Colors
 
-![Alt text](assets/test.svg)
-<img src="assets/test.svg">
+![Alt text](../assets/test.svg)
+<img src="../assets/test.svg">
 
 All of the [bootstrap colors](./bootstrap-colors.html)
 

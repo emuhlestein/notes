@@ -28,6 +28,24 @@ All of the bootstrap colors:
     <div class="myDiv bg-white text-dark">Hello Bootstrap</div>
     <div class="myDiv bg-transparent text-dark">Hello Bootstrap</div>
 
+The **container** class adds margin and padding to div. It is jumpy when resize window because of the breakpoints.
+The **container-fluid** class is smooth when scrolling.
+
+Bootstrap is based on a 12-column layout.
+
+For responsive layout, the container class is optional but to have multi-column layout, need to put columns inside a row tag.
+    <div class="container">
+        <div class="row"></div>
+    </div>
+    
+### Breakpoints
+* min-width: 1200px - XL
+* min-width: 992px - LG
+* min-width: 768px - MD
+* min-width: 576px - SM
+* min-width: 578.98px - and below - xtra-SM
+
+
 
 
 ## ng-bootstrap

@@ -14,6 +14,8 @@ It is a view defined with a template, its associated code defined with a class a
 
 An Angular application is organized into ***Modules***. Each Module is comprized of one or more component. Each applicaton has at least one module known as the root module.
 
+Starting with Angular 6, angular-cli.json was changed to angular.json.
+
 ***npm*** is the package manager. It is used to install all the dependencies for an Angular project and all sub-dependencies. All of the dependencies are listed in the package.json file. ALl of the dependencies are installed in the node_modules folder.
 
 Component = Template + Class + Metadata

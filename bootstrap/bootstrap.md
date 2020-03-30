@@ -1,5 +1,5 @@
 # Bootstrap
-[Back](./README.md)
+[Back](../README.md)
 
 Go to [Bootstrap Getting Started](https://getbootstrap.com/docs/4.4/getting-started/introduction/) page and copy the starter template into the index.html file.
 

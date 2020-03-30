@@ -3,3 +3,4 @@ This is an experimental repo for keeping track of notes and things that I am lea
 Here are the things I am currently learning:
 
 [Angular](./angular/angular.md) 
+[Bootstrap](./bootstrap/bootstrap.md)

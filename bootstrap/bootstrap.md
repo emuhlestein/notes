@@ -16,7 +16,7 @@ CARP
 
 ![Alt text](./yellow.svg)  
 
-All of the [bootstrap colors](./bootstrap-colors.html)
+All of the [bootstrap colors](./bootstrap-colors.md)
 
 The **container** class adds margin and padding to div. It is jumpy when resize window because of the breakpoints.
 The **container-fluid** class is smooth when scrolling.

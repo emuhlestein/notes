@@ -243,3 +243,60 @@ A component cannot remember its state. When navigating away from a component, it
 ### Data Access Service
 
 A service that interacts with a backend for retrieving and storing data.
+
+### Keeping Component States in Sync
+
+When a product item is selected in the product list component, need to inform product details component of the selected product.
+    export class ProductService {
+       currentProduct: IProduct | null;
+    }
+
+    <button (click)=onSelected(product)</button>
+
+    export class ProductShellListComponent {
+        onSelected(product) {
+           this.productService.currentProduct = product;
+        }
+    }
+    
+    export class ProductShellDetailsComponent {
+       get product() {
+          return this.productService.currentProduct;
+       }
+    }
+
+#### Getter
+A getter is a great way to keep bound data in sync
+* Define a property in a service
+* Bind that property in a template
+* Use a getter in the component class
+* Angular's change detection does the rest
+
+#### Subject
+
+    export class ProductService {
+        private selectedProductSource = new Subject<IProduct | null>();
+        selectProductChanges$ = selectedProductSource.asObservable();
+        
+        changeSelectedProduct(selectedProduct: IProduct | null) {
+            selectedProductChanges$.next(selectedProduct);
+        }
+        
+        
+        this.changeSelectedProduct(null);
+    }
+
+    export class ProductShellListComponent {
+        onSelected(product: IProduct) {
+            this.productService.changeSelectedProduct(product);
+        }
+    }
+    
+    
+    export class ProductShellDetailComponent implements  OnInit{
+        product: IProduct;
+        ngOnInit() {
+            this.productService.selectedProductChanges$.subscribe(
+                selectedProduct => this.product = selectedProduct;
+        }
+    }

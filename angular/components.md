@@ -300,3 +300,80 @@ A getter is a great way to keep bound data in sync
                 selectedProduct => this.product = selectedProduct;
         }
     }
+    
+#### BehaviorSubject
+* Requires an initial value
+* Provides the current value on a new subscription
+
+ export class ProductService {
+        private selectedProductSource = new BehaviorSubject<IProduct | null>(null);
+        selectProductChanges$ = selectedProductSource.asObservable();
+        
+        changeSelectedProduct(selectedProduct: IProduct | null) {
+            selectedProductChanges$.next(selectedProduct);
+        }
+        this.changeSelectedProduct(null);
+    }
+
+    export class ProductShellListComponent {
+        onSelected(product: IProduct) {
+            this.productService.changeSelectedProduct(product);
+        }
+    }
+    
+    
+    export class ProductShellDetailComponent implements  OnInit{
+        product: IProduct;
+        ngOnInit() {
+            this.productService.selectedProductChanges$.subscribe(
+                selectedProduct => this.product = selectedProduct;
+        }
+    }
+
+#### In ProductShellListComponent
+
+    selectedProduct: IProduct | null;
+    
+    <button [ngClass]="{'active': product?.id === selectedProduct?.id}">{{product.name}}</button>
+    
+    
+    this.subscription = this.productService.selectedProductChanges$.subscribe(
+                selectedProduct => this.product = selectedProduct;
+                
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+    
+### Routing
+
+    <a [routerLink]="['products']">Product List</a>
+This updates the address bar and then the router sees this change then sequentually exams the router table. It the selects the first match it finds:
+
+    { path: 'welcome', component: WelcomeComponent },
+    { path: 'products', comopnent: ProductListComponent },
+    { path: 'products/:id", component: ProductDetailComponent }
+    
+The router then takes the selected component and renders it using the <router-outlet></router-outlet> directive.
+
+app router outlet
+app shell router outlet
+product shell component
+
+#### Route Parameters
+* Required - parameter must be defined as part of the router configuration
+    * <a [routerLink]="['/products', product.id]">Product List</a>
+    * this.router.navigate(['/products', product.id]);
+    * this.route.snapshot.paramMap.get('id');
+* Optional - Parameters are not defined as part of the router configuration
+    * <a [routerLink]="['/products', {name: cart, code: g}]">Product List</a>
+    * this.router.navigate(['/products', {name: cart, code: g}]);
+    * this.route.snapshot.paramMap.get('name');
+* Query - Parameters are not defined as part of the router configuration
+    * <a [routerLink]="['/products']" [queryParams]="{name: cart, code: g}">Product List</a>
+    * this.router.navigate(['/products'], {queryParams, {name: cart, code: g}});
+    * this.route.snapshot.queryParamMap.get('name');
+    * retains parameters and can return them.
+    
+
+
+

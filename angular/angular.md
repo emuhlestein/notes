@@ -3,7 +3,8 @@
 * [Components](./components.md)  
 * [Routing](./routing.md)  
 * [Responsive](./responsive.md)  
-* [Observable Example](#observable example)
+
+[Observable Example](#observable example)
 
 An Angular application is conprized of one or more components and can include one or more services.
 

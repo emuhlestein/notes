@@ -50,4 +50,81 @@ It is a native Angular implementation for Bootstrap components.
 * No dependency on JQuery
 
 
+<section class="container">
+      <section class="row">
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+        <div class="col">Equal</div>
+      </section>
+    </section>
+    
+    // this is not responsive, ie as the window width is shrunk, the columns don't stack
+     <section class="container">
+      <section class="row">
+        <div class="col">Auto</div> // this takes up the remaining space. it is auto.
+        <div class="col-8">Auto</div>
+        <div class="col-2">Auto</div>
+      </section>
+    </section>
 
+This is a responsive layout
+
+   <section class="container">
+      <section class="row">
+        <div class="col-sm">Auto</div>
+        <div class="col-sm">Auto</div>
+        <div class="col-sm">Auto</div>
+      </section>
+    </section>
+    
+    
+    nesting 2 columns inside the first column
+    
+       <section class="container">
+      <section class="row">
+        <div class="col bg-warning">
+          First
+          <section class="row">
+            <div class="col bg-info">Second</div>
+            <div class="col bg-success">Third</div>
+          </section>
+        </div>
+      </section>
+    </section>
+    
+    
+      <section class="container">
+      <section class="row">
+            <div class="col-6ol-xl-8 bg-warning">
+                <p>SM: 576px<br>MD: 768px<br>LG: 992px<br>XL: 1200px</p>
+            </div>
+      </section>
+    </section>
+
+
+    <section class="container">
+      <section class="row">
+        <div class="col-6 bg-info">1</div>
+        <div class="col-6 bg-secondary">2</div>
+      </section>
+      <section class="row">
+        <div class="col-4 bg-info">1</div>
+        <div class="col-4 bg-secondary">2</div>
+        <div class="col-4 bg-success">3</div>
+      </section>
+      <section class="row">
+        <div class="col-3 bg-info">1</div>
+        <div class="col-3 bg-secondary">2</div>
+        <div class="col-3 bg-success">3</div>
+        <div class="col-3 bg-danger">4</div>
+      </section>
+    </section>

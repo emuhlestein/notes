@@ -15,7 +15,7 @@ CARP
 ## Colors
 
 ![Alt text](../img/test.svg)
-<img src="../../test.svg">
+<img src="../img/test.svg">
 
 All of the [bootstrap colors](./bootstrap-colors.html)
 

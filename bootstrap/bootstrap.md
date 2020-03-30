@@ -14,6 +14,8 @@ CARP
 
 ## Colors
 
+![Alt text](../img/test.svg)
+
 All of the [bootstrap colors](./bootstrap-colors.html)
 
 The **container** class adds margin and padding to div. It is jumpy when resize window because of the breakpoints.

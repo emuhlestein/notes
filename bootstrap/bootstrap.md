@@ -1,5 +1,5 @@
 # Bootstrap
-[Back](./angular.md)
+[Back](./README.md)
 
 Go to [Bootstrap Getting Started](https://getbootstrap.com/docs/4.4/getting-started/introduction/) page and copy the starter template into the index.html file.
 
@@ -14,7 +14,7 @@ CARP
 
 ## Colors
 
-All of the [bootstrap colors](./boostrap-colors.md)
+All of the [bootstrap colors](./bootstrap-colors.md)
 
 The **container** class adds margin and padding to div. It is jumpy when resize window because of the breakpoints.
 The **container-fluid** class is smooth when scrolling.

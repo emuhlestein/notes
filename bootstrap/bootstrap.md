@@ -49,22 +49,22 @@ It is a native Angular implementation for Bootstrap components.
 * No dependency on JQuery
 
 
-<section class="container">
-      <section class="row">
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-        <div class="col">Equal</div>
-      </section>
-    </section>
+    \<section class="container">  
+      \<section class="row">  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+        \<div class="col">Equal\</div>  
+      \</section>  
+    \</section>  
     
     // this is not responsive, ie as the window width is shrunk, the columns don't stack
      <section class="container">

@@ -50,7 +50,7 @@ It is basically a blend of two incredibly popular technologies: Node.js and Chro
 
 [Node.js for React](https://jscomplete.com/learn/why-node-for-react)
 
-[Node Test](http://bit.ly/node.test)
+[Node Test](http://bit.ly/node-test)
 
 
 

@@ -31,5 +31,28 @@ It is basically a blend of two incredibly popular technologies: Node.js and Chro
 * libuv for asynchromous I/O and the event loop
 
 
+### Tesing
+
+* Mocha
+* Chai
+* Sinon
+* Istanbul
+
+### Why Node
+
+* Easy to run JS on backend server (V8)
+* Built-in modules (fs, http, crypt, zip,
+* Asynchronous APIs (no threads), non-blocking
+* C++ addons - can write these in C++ and install them in node.
+* Has good debugger and other utilities
+* NPM
+* Module dependency manager (CommonJS)
+
+[Node.js for React](https://jscomplete.com/learn/why-node-for-react)
+
+[Node Test](http://bit.ly/node.test)
+
+
+
 
 

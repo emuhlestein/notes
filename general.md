@@ -35,3 +35,16 @@ A POST, PUT or PATCH request should include a Content-Type: application/json hea
     }
   ]
 }
+
+
+npm install <package> This install the package into node_modules
+  
+npm install --save <package> This installs the package into node_modules and updates the package.json file, making this package a dependency for the project.
+  
+npm install --save-dev <package>  This installs the package and updates package.json to creates dev dependency.
+
+Need to read about the npm left-pad problem.
+
+yarn is like npm.
+
+

@@ -1,17 +1,6 @@
 Node.js
 [About Node.js](https://nodejs.org/en/about/)
 
-Getting Started with NodeSo, in this section, you learned that:  
-* Node is a runtime environment for executing JS code.  
-* Essentially, Node is a C++ program that embeds Chrome’s v8 engine, the fastest JS engine in the world.  
-* We use Node to build fast and scalable networking applications. It’s a perfect choice for building RESTful services.  
-* Node applications are single-threaded. That means a single thread is used to serve all clients.  
-* Node applications are asynchronous or non-blocking by default. That means when the application involves I/O operations (eg accessing the file system or the network), the thread doesn’t wait (or block) for the result of the operation. It is released to serve other clients.  
-* This architecture makes Node ideal for building I/O-intensive applications.  
-* You should avoid using Node for CPU-intensive applications, such as a video encoding service. Because while executing these operations, other clients have to wait for the single thread to finish its job and be ready to serve them.  
-* In Node, we don’t have browser environment objects such as window or the document object. Instead, we have other objects that are not available in browsers, such as objects for working with the file system, network, operating system, etc. 
-
-
 Node.js is "an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications...Users of Node.js are free from worries of dead-locking the process, since there are no locks. Almost no function in Node.js directly performs I/O, so the process never blocks. Because nothing blocks, scalable systems are very reasonable to develop in Node.js."
 
 Where is Node.js found?
@@ -27,45 +16,73 @@ Do not use Node for CPU-intensive apps. LIke image processing or some other heav
 
 Should only be used for data-intensive apps and real-time apps. Maybe can be used for a game server.
 
-Module
+## Getting Started with Node  
+* Node is a runtime environment for executing JS code.  
+* Essentially, Node is a C++ program that embeds Chrome’s v8 engine, the fastest JS engine in the world.  
+* We use Node to build fast and scalable networking applications. It’s a perfect choice for building RESTful services.  
+* Node applications are single-threaded. That means a single thread is used to serve all clients.  
+* Node applications are asynchronous or non-blocking by default. That means when the application involves I/O operations (eg accessing the file system or the network), the thread doesn’t wait (or block) for the result of the operation. It is released to serve other clients.  
+* This architecture makes Node ideal for building I/O-intensive applications.  
+* You should avoid using Node for CPU-intensive applications, such as a video encoding service. Because while executing these operations, other clients have to wait for the single thread to finish its job and be ready to serve them.  
+* In Node, we don’t have browser environment objects such as window or the document object. Instead, we have other objects that are not available in browsers, such as objects for working with the file system, network, operating system, etc. 
+
+## Module
+
 console.log() // console is global object in JS
 setTimeout() // global function
 clearTimeout()
 setInterval()
 clearInterval()
 
-All these functions are a part of the window object in the browser.
+All these functions are a part of the **window** object in the browser.
 
-var message = ‘’;
+var message = ‘’; // creates a global variable and attach to window object.
 Window.message
 
 In Node:
 Global.console
 
-File variables are only accessible in the file. They are not included in the global object.
+File variables and functions are only accessible in the file, ie they are scoped to the file. They are not included in the global object.
 
 Avoid defining variables and functions in the global scope. They can overwrite each other. Better to use modules.
 
-Every file in a node application is a module. All variables or functions are scoped to that file. ALl of these are private by default. If they are be seen from without the module, they need to be explicitly exported. Every node app as a least one module (or file) known as the main module.
+Every file in a node application is a module. All variables or functions are scoped to that file. All of these are private by default. If they are to be seen from without the module, they need to be explicitly exported. Every node app as a least one module (or file) known as the main module.
+
+somefile.js:  
+
+    // the variable url and the function log are scoped to this module. They are not
+    // visible out side the module.
+    
+    var url='http:/logger.io/log;
+    
+    function log(message) {
+        // send message via HTTP request to logger service
+        console.log(message);
+    }
+    
+    // add the log method to the exports object and set it to log
+    module.exports.log = log;
+    
+    // can also export variable
+    module.exports.url = url;
+    
+When an item is exported (variable, object, function, ...), the exported name can be different from the item being exported:
+
+    module.exports.endpoint = url;
 
 Module is an object that resides in a module. Each module has one. It is a json object.
 
 Can export a single function or an object.
 
-// the variable url and the function log are scoped to this module. They are not
-// visible out side the module.
+To export single function:
 
-module.exports.log = log;
-module.exports.url = url;
+    module.exports = someFunc;
 
-To export  single function:
-Module.exports = someFunc;
+Node takes all the code in a file (module) and wraps it in a function:
 
-Node takes all he code in a file (module) and wraps it in a function:
-
-(function (exports, require, module, __filename, __dirname) {
-// all the code in a module
-}
+    (function (exports, require, module, __filename, __dirname) {
+        // all the code in a module
+    }
 
 That is, Node does not execute the code directly. It calls the wrapper function which then calls the module code.
 

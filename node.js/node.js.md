@@ -48,7 +48,7 @@ Avoid defining variables and functions in the global scope. They can overwrite e
 
 Every file in a node application is a module. All variables or functions are scoped to that file. All of these are private by default. If they are to be seen from without the module, they need to be explicitly exported. Every node app as a least one module (or file) known as the main module.
 
-somefile.js:  
+logger.js:  
 
     // the variable url and the function log are scoped to this module. They are not
     // visible out side the module.
@@ -64,11 +64,19 @@ somefile.js:
     module.exports.log = log;
     
     // can also export variable
-    module.exports.url = url;
+    module.exports.url = url;  // not good to export as it is an implementation detail.
     
 When an item is exported (variable, object, function, ...), the exported name can be different from the item being exported:
 
     module.exports.endpoint = url;
+    
+To use an exported feature, need to import it into the desired module. This is done with the require function;
+
+In otherfile.js:  
+
+    const logger = require('./logger');  // Node assumes file is JavaScript
+    
+    logger.log('message'); // the log method is what was exported from the other module
 
 Module is an object that resides in a module. Each module has one. It is a json object.
 
@@ -76,15 +84,71 @@ Can export a single function or an object.
 
 To export single function:
 
-    module.exports = someFunc;
+    function getMovies() {
+        return listOfMovies;
+    }
+    
+    module.exports = getMovies();
+    
+
+In other file:
+
+   const getMovies = require('./movies');
+   const listOfMovies = getMovies();
 
 Node takes all the code in a file (module) and wraps it in a function:
 
-    (function (exports, require, module, __filename, __dirname) {
-        // all the code in a module
+    // **exports** is a short cut for module.exports  
+    (function (**exports**, require, module, __filename, __dirname) {
+        // all the code in a module is contained in this function
+        
+        module.exports = log; // ok
+        exports = log; // not ok; can't change the reference to exports
     }
+    
 
-That is, Node does not execute the code directly. It calls the wrapper function which then calls the module code.
+That is, Node does not execute the code directly. It calls the wrapper function which then calls the module code. This function is known as an IIFE (Immediately-invoked Function Expression). [IIFE](https://flaviocopes.com/javascript-iife/)
+
+
+### Node Modules
+
+Node modules that can be used in our apps. Here are a few of them:  
+* File System
+* HTTP
+* OS
+* Path
+* Process - information about the current process
+* Query Strings
+* Stream
+
+#### Path Module
+
+const path = require('path'); // a built in node module; there is no path associated with this.
+    
+#### EventEmitter
+
+    const EventEmitter = require('EventEmitter'); // This returns as class
+    const emitter = new EventEmitter();
+
+    // register a listener
+    emitter.on('messageLogged', (arg) => {
+        console.log('Listener called: ', arg);
+    });
+    
+    // raise an event
+    emitter.emit('messageLogged', {id: 1, url: 'http://'})
+    
+### Node Core
+So, in this section, you learned that:  
+* We don’t have the window object in Node.  
+* The global object in Node is “global”.  
+* Unlike browser applications, variables we define are not added to the “global” object.  
+* Every file in a Node application is a module. Node automatically wraps the code in each file with an IIFE (Immediately-invoked Function Expression) to create scope. So, variables and functions defined in one file are only scoped to that file and not visible to other files unless explicitly exported.  
+* To export a variable or function from a module, you need to add them to module.exports: module.exports.sayHello = sayHello;  
+* To load a module, use the require function. This function returns the module.exports object exported from the target module: const logger = require(‘./logger’);  
+* Node has a few built-in modules that enable us to work with the file system, path objects, network, operating system, etc.  
+* EventEmitter is one of the core classes in Node that allows us to raise (emit) and handle events. Several built-in classes in Node derive from EventEmitter.  
+* To create a class with the ability to raise events, we should extend EventEmitter: class Logger extends EventEmitter { } 
 
 Creating package.json:
 $npm init -y

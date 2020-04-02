@@ -50,6 +50,10 @@
 * display: inline-block; // Displays as a inline block. Any height and width properties DO have affect.
     
 ![Alt text](../assets/blue-rectangle.svg) ![Alt text](../assets/light-blue-rect.svg)
+
+
+![Alt text](../assets/long-blue-rect.svg)
+![Alt text](../assets/long-light-blue-rect.svg)
     
 The media queries effect screen widths with the given breakpoint or larger. For example, .d-lg-none sets display: none; on both lg and xl screens.
 

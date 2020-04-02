@@ -60,8 +60,10 @@ The media queries effect screen widths with the given breakpoint or larger. For 
 
 
 Show/hide depending on the breakpoint
-* class="d-none" // hide contend if no breakpoint specified
-
+* d-none // hide content for all breakpoints
+* d-none d-sm-block // hide for xs only
+* d-sm-none // show only xs
+* d-lg-none d-xl-block // hide only lg
 
 Go to [Bootstrap Getting Started](https://getbootstrap.com/docs/4.4/getting-started/introduction/) page and copy the starter template into the index.html file.
 

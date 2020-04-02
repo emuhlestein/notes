@@ -5,7 +5,7 @@
 
 [Updating CLI](https://github.com/angular/angular-cli/wiki/stories-1.0-update)
 
-## What is Responsive Web Design
+## What is Responsive Web Design (RWD)
 
 * Readable text
 * No horizontal scrolling
@@ -31,8 +31,32 @@
 | Max container Width |  None(auto)  |     540px    |     720px    |     960px    |    1140px     |
 |   Class Prefix      |    .col-     |   .col-sm-   |   .col-md-   |    .col-lg-  |    .col-xl-   |
 
+## VSCode
+
+### Recommended Extensions
+* Angular Language Service
+* ANgular v7 Snippets
+* EditorConfig for VSCode
+* IntelliSense for CSS class names in HTML
+
+### Bootstrap Container
+
+### Display
+
+css: display: none; // removes element from DOM
+css: visibility: hidden; // hides the element but is still in the DOM
+css: display: block; // Display as a block element. Starts on new line and takes up entire width
+css: display: inline; // Displays as a <span>. Any height and width properties have no affect.
+css: display: inline-block; // Displays as a inline block. Any height and width properties DO have affect.
+    
+![Alt text](../assets/blue-rectangle.svg) ![Alt text](../assets/blue-rectangle.svg)
+    
+The media queries effect screen widths with the given breakpoint or larger. For example, .d-lg-none sets display: none; on both lg and xl screens.
 
 
+
+Show/hide depending on the breakpoint
+* class="d-none" // hide contend if no breakpoint specified
 
 
 Go to [Bootstrap Getting Started](https://getbootstrap.com/docs/4.4/getting-started/introduction/) page and copy the starter template into the index.html file.

@@ -9,3 +9,8 @@ background-size: cover;
 
 IIFE (Immediately-invoked Function Expression). [IIFE](https://flaviocopes.com/javascript-iife/)
 
+ npm install lodash ngx-loading --save  
+ 
+ Angular Routing
+ 
+ 

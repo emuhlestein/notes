@@ -43,11 +43,11 @@
 
 ### Display
 
-css: display: none; // removes element from DOM
-css: visibility: hidden; // hides the element but is still in the DOM
-css: display: block; // Display as a block element. Starts on new line and takes up entire width
-css: display: inline; // Displays as a <span>. Any height and width properties have no affect.
-css: display: inline-block; // Displays as a inline block. Any height and width properties DO have affect.
+* display: none; // removes element from DOM
+* visibility: hidden; // hides the element but is still in the DOM
+* display: block; // Display as a block element. Starts on new line and takes up entire width
+* display: inline; // Displays as a <span>. Any height and width properties have no affect.
+* display: inline-block; // Displays as a inline block. Any height and width properties DO have affect.
     
 ![Alt text](../assets/blue-rectangle.svg) ![Alt text](../assets/blue-rectangle.svg)
     

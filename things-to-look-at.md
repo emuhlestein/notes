@@ -3,6 +3,7 @@
 ## JavaScript
 * Array.filter, indexOf, index, find
 * Array deconstruction
+* 3 == '3' is true
 
 background: url('img/header.jpg') no-repeat center center;  
 background-size: cover;  

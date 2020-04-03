@@ -20,6 +20,11 @@ By using this parameter we’re making sure that the server is started in watch 
 
 A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.
 
+
+mailthis.to: create an email alias.
+
+lighthouse: web site
+
 ### JavaScript
 
 Javascript array indexOf() is an inbuilt function that returns the first index at which the given item can be found in an array, or -1 if it is not present in an array.

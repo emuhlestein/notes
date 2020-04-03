@@ -5,6 +5,20 @@
 
 [Updating CLI](https://github.com/angular/angular-cli/wiki/stories-1.0-update)
 
+## Setting Up Dev Environment
+
+npm install bootstrap --save
+
+Add the following to styles.scss:  
+
+@import '~bootstrap/scss/bootstrap';
+
+Note: this down loads everything. Ultimately, before website is deployed, need to optimize the importing of bootstrap. Need to take a more targeted approach.
+
+ng add @angular/material
+
+Need to install hammerjs
+
 ## What is Responsive Web Design (RWD)
 
 * Readable text

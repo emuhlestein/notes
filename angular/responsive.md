@@ -110,6 +110,10 @@ For responsive layout, the container class is optional but to have multi-column 
 * How will the pages be divided
 * How will the content be layed out
 
+![Web Layout](../assets/webpagelayout.PNG)  
+
+https://unsplash.com/ For free high res images
+
 ## ng-bootstrap
 
 [ng-bootstrap](https://ng-bootstrap.github.io/#/home)

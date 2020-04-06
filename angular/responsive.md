@@ -10,7 +10,6 @@
 npm install bootstrap --save
 
 Add the following to styles.scss:  
-
 @import '~bootstrap/scss/bootstrap';
 
 Note: this down loads everything. Ultimately, before website is deployed, need to optimize the importing of bootstrap. Need to take a more targeted approach.
@@ -106,10 +105,10 @@ For responsive layout, the container class is optional but to have multi-column 
         <div class="row"></div>
     </div>
     
-
-
-
-
+## Steps to creating WebSite  
+* How many pages
+* How will the pages be divided
+* How will the content be layed out
 
 ## ng-bootstrap
 

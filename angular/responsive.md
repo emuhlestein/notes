@@ -18,6 +18,14 @@ ng add @angular/material
 
 Need to install hammerjs
 
+Add to main.ts:  
+import 'hammerjs';
+
+In SCSS a $ is used to define a variable:  
+$alt-color: #f2f2f2;  
+$accent: #009988;
+
+
 ## What is Responsive Web Design (RWD)
 
 * Readable text

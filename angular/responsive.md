@@ -25,6 +25,42 @@ In SCSS a $ is used to define a variable:
 $alt-color: #f2f2f2;  
 $accent: #009988;
 
+#### Setup from YouTube
+
+// bootstrap
+@import "my-variables";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+
+@import "my-reset";
+
+// material
+
+@import "~@angular/material/theming";
+
+@include mat-core($my-typography);
+
+$my-theme: mat-light-theme($primary, $accent, $warm)
+@include angular-material-theme($my-theme);
+
+@mixin gerate-utiltilies($theme) {
+   $primary: map-get($theme, primary);
+   $accent: map-get($theme, accent);
+   
+   .my-text-secondary-900 {
+        color: mat-color($secondary, 900);
+    }
+    .my-bg-primary-100 {
+       background-color: mat-color($primary, 100);
+    }
+}
+
 
 ## What is Responsive Web Design (RWD)
 
